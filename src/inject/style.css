@@ -1,0 +1,66 @@
+/* ========== 1. 日间模式护眼配色 ==========
+   script.js 检测到页面背景接近纯白（日间模式）时，会给 <html> 加上 .wr-day。
+   切到夜间/护眼主题后自动移除，不会污染深色模式。 */
+
+html.wr-day,
+html.wr-day body,
+html.wr-day .app_content,
+html.wr-day #routerView,
+html.wr-day .reader_content,
+html.wr-day .readerTopBar,
+html.wr-day .readerControls {
+  background-color: #c0d3d7 !important;
+}
+
+/* script.js 动态找出铺满屏幕的白色容器，加上这个类，统一改成页面底色 */
+.wr-fix-bg {
+  background-color: #c0d3d7 !important;
+}
+
+/* 书籍正文区域背景 */
+html.wr-day .readerChapterContent,
+html.wr-day .readerChapterContent .renderTargetContainer {
+  background-color: #cce8cf !important;
+}
+
+/* 正文文字 */
+html.wr-day .readerChapterContent,
+html.wr-day .readerChapterContent * {
+  color: #111111 !important;
+}
+
+/* ========== 2. 老式电子表挂件 ========== */
+
+#wr-clock {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 2147483647;
+  padding: 6px 11px;
+  border-radius: 5px;
+  border: 1px solid rgba(125, 255, 155, 0.28);
+  background: linear-gradient(180deg, #13251a 0%, #0a1710 100%);
+  color: #7dff9b;
+  font: 13px/1.5 "Consolas", "Courier New", ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 1.2px;
+  text-shadow: 0 0 6px rgba(125, 255, 155, 0.6);
+  box-shadow:
+    inset 0 0 10px rgba(0, 255, 120, 0.12),
+    0 3px 10px rgba(0, 0, 0, 0.3);
+  opacity: 0.55;
+  transition: opacity 0.18s ease;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+}
+
+#wr-clock:hover {
+  opacity: 1;
+}
+
+/* 不在计时状态时，数字变暗，模拟电子表待机 */
+#wr-clock.wr-paused {
+  color: #47785a;
+  text-shadow: none;
+}

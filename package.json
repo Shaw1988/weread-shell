@@ -1,0 +1,44 @@
+{
+  "name": "weread-desktop",
+  "version": "0.1.0",
+  "private": true,
+  "description": "微信读书网页版桌面壳",
+  "license": "MIT",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win portable"
+  },
+  "devDependencies": {
+    "electron": "^38.8.6",
+    "electron-builder": "^25.1.8",
+    "rcedit": "^5.0.1"
+  },
+  "build": {
+    "appId": "com.local.wereaddesktop",
+    "productName": "WereadDesktop",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "src/**/*",
+      "package.json"
+    ],
+    "asar": true,
+    "afterPack": "build/afterPack.js",
+    "electronLanguages": [
+      "zh-CN",
+      "en-US"
+    ],
+    "win": {
+      "icon": "build/icon.ico",
+      "signAndEditExecutable": false,
+      "target": [
+        "portable"
+      ]
+    },
+    "portable": {
+      "artifactName": "WereadDesktop-${version}.exe"
+    }
+  }
+}
