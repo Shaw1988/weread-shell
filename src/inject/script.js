@@ -315,7 +315,9 @@
 
     if (last.includes('/web/reader/')) {
       sessionStorage.setItem('wr-boot', '1');
-      location.href = last;
+      // 去掉 hash：URL 里带旧位置的话，前端会优先按 hash 定位，
+      // 把云端最新进度（其他设备读到的位置）覆盖掉，导致桌面端不同步。
+      location.href = last.split('#')[0];
       return;
     }
 
