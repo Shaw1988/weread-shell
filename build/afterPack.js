@@ -36,8 +36,8 @@ module.exports = async function afterPack(context) {
   if (fs.existsSync(exePath)) {
     await rcedit(exePath, {
       icon: path.join(__dirname, 'icon.ico'),
-      'file-version': '0.1.1.0',
-      'product-version': '0.1.1.0',
+      'file-version': '0.1.2.0',
+      'product-version': '0.1.2.0',
       'version-string': {
         ProductName: '微信读书桌面版',
         FileDescription: '微信读书桌面版',
